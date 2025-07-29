@@ -1,0 +1,304 @@
+body * {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+
+#map {
+  height: 88vh;
+  width: 100%;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+.btn {
+  transition: transform 0.2s ease;
+}
+
+.button-container-editar {
+  position: absolute;
+  top: 25px;
+  left: 7%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  font-size: larger;
+  width: auto;
+}
+
+
+.button-container {
+  position: absolute;
+  top: 124px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: auto;
+}
+
+.button-container button {
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  max-width: 100%;
+}
+
+.texto-bajito {
+  margin-top: 60px;
+  /* Ajustá este número */
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+#button-container-editar {
+  right: 50%;
+  transform: translateX(43%);
+}
+
+.chart-container {
+  position: absolute;
+  top: 125px;
+  right: 10px;
+  width: 500px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.chart-container canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+
+.table-container {
+  position: absolute;
+  top: 420px;
+  right: 10px;
+  width: 500px;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 12px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.table-container table {
+  font-size: 0.85rem;
+}
+
+
+.darkmode-container {
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+  z-index: 1000;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+body.dark-mode .chart-container,
+body.dark-mode .table-container {
+  background-color: rgba(30, 30, 30, 0.9);
+  color: #f1f1f1;
+}
+
+body.dark-mode .table thead {
+  background-color: #333;
+}
+
+body.dark-mode .btn-primary {
+  background-color: #444;
+  border-color: #555;
+}
+
+body.dark-mode .btn-dark {
+  background-color: #f1f1f1;
+  color: #121212;
+}
+
+
+
+
+@media (max-width: 768px) {
+
+  #map {
+    height: 500px;
+  }
+
+
+  .button-container {
+    top: 5px;
+    left: 0;
+    transform: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  .button-container button {
+    width: 90%;
+    font-size: 0.85rem;
+    padding: 5px 10px;
+  }
+
+
+  .chart-container {
+    position: static;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    box-shadow: none;
+  }
+
+
+  .table-container {
+    position: static;
+    width: 100%;
+    max-height: none;
+    margin-top: 10px;
+    padding: 10px;
+    box-shadow: none;
+  }
+
+  .table-container table {
+    font-size: 0.8rem;
+  }
+}
+
+
+
+
+body.dark-mode .table-container table {
+  background-color: #2b2b2b !important;
+  color: #fff;
+}
+
+body.dark-mode .table-container .table-striped tbody tr:nth-of-type(odd) {
+  background-color: #2e2e2e !important;
+}
+
+body.dark-mode .table-container .table-striped tbody tr:nth-of-type(even) {
+  background-color: #3a3a3a !important;
+}
+
+body.dark-mode .table-container th,
+body.dark-mode .table-container td {
+  background-color: #2b2b2b !important;
+  color: #fff !important;
+  border-color: #444;
+}
+
+body.dark-mode .table-container thead {
+  background-color: #1f1f1f !important;
+}
+
+
+@media (max-width: 768px) {
+  #map {
+    height: 500px;
+  }
+
+  .button-container {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    z-index: 1000;
+  }
+
+  .button-container button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    max-width: 90%;
+  }
+
+  .chart-container,
+  .table-container {
+    position: static;
+    width: 100%;
+    margin: 1rem auto;
+    padding: 10px;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .table-container table {
+    font-size: 0.8rem;
+  }
+
+  .darkmode-container {
+    position: static;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+  }
+
+  .darkmode-container button {
+    font-size: 1rem;
+    padding: 10px 18px;
+    width: 95%;
+    max-width: 400px;
+    transition: transform 0.2s ease;
+  }
+
+}
+
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.dark-mode table {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.dark-mode .table-dark th {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+  background-color: #2c2c2c;
+  color: #fff;
+  border-color: #444;
+}
+
+.darkmode-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+#btn-registros {
+  padding-right: 5px;
+  right: 25% !important;
+}
+
+.darkmode-container {
+  margin-bottom: 1rem;
+}
+
+
+
+#button-container-editar {
+  margin-bottom: 1.5rem;
+}
+
+#formulario-registros {
+  top: 50%;
+}

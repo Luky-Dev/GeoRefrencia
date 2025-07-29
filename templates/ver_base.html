@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ver Base de Datos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    body {
+      padding: 2rem;
+    }
+
+    .tabla-container {
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    body.dark-mode .table {
+      background-color: #1c1c1c;
+    }
+
+    body.dark-mode .table th,
+    body.dark-mode .table td {
+      background-color: #2a2a2a;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="/" class="btn btn-primary mb-3">🏠 Volver al mapa</a>
+  <h2 class="mb-4">📊 Base de Datos Completa</h2>
+  <div class="darkmode-container">
+    <button id="toggleDarkMode" class="btn btn-dark btn-sm">
+      🌙 Modo Oscuro
+    </button>
+  </div>
+
+  <div class="tabla-container table-responsive">
+    <table class="table table-bordered table-sm table-striped">
+      <thead class="table-dark">
+        <tr>
+          {% for col in columnas %}
+          <th>{{ col }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for fila in filas %}
+        <tr>
+          {% for col in columnas %}
+          <td>{{ fila[col] }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const botonDarkMode = document.getElementById("toggleDarkMode");
+    const isDark = localStorage.getItem("modoOscuro") === "true";
+
+    if (isDark) {
+      document.body.classList.add("dark-mode");
+      botonDarkMode.textContent = "☀️ Modo Claro";
+    }
+
+    botonDarkMode.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      const esModoOscuro = document.body.classList.contains("dark-mode");
+      botonDarkMode.textContent = esModoOscuro ? "☀️ Modo Claro" : "🌙 Modo Oscuro";
+      localStorage.setItem("modoOscuro", esModoOscuro);
+    });
+  </script>
+
+</body>
+
+</html>

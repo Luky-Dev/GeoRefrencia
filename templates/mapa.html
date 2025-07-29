@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mapa de prueba</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+</head>
+
+<body>
+  <!-- <div class="button-container">
+    <button id="toggleVista" class="btn btn-primary btn-sm">
+      Cambiar a vista por ETAPA
+    </button>
+  </div> -->
+
+  <div class="button-container-editar">
+    <a href="/editar">
+      <button id="toggleEditar" class="btn btn-primary btn-lg">
+        Editar Base de Datos
+      </button>
+    </a>
+  </div>
+
+  <div class="container my-3">
+    <div class="row g-3 align-items-center filtros-container">
+
+      <div class="col-md-3">
+        <label for="filtroGenero" class="form-label">Género</label>
+        <select id="filtroGenero" class="form-select">
+          <option value="">Todos</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Femenino">Femenino</option>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <label for="filtroEstrato" class="form-label">Estrato</label>
+        <select id="filtroEstrato" class="form-select">
+          <option value="">Todos</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4+</option>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <label for="filtroNivel" class="form-label">Nivel educativo</label>
+        <select id="filtroNivel" class="form-select">
+          <option value="">Todos</option>
+          <!-- Puedes llenar más dinámicamente desde JS si quieres -->
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <label for="filtroVotoCongreso" class="form-label">¿Vota Congreso?</label>
+        <select id="filtroVotoCongreso" class="form-select">
+          <option value="">Todos</option>
+          <option value="SI">Sí</option>
+          <option value="NO">No</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label for="filtroSupervisor" class="form-label">Líder / Supervisor</label>
+        <select id="filtroSupervisor" class="form-select">
+          <option value="">Todos</option>
+          <!-- Se llenará dinámicamente -->
+        </select>
+      </div>
+
+    </div>
+  </div>
+
+  <input id="inputCedula" type="text" placeholder="Buscar por cédula" class="form-control mb-2">
+  <button onclick="buscarPorCedula()" class="btn btn-info">🔍 Buscar</button>
+
+
+  <div id="map"></div>
+
+  <div class="darkmode-container">
+    <button id="toggleDarkMode" class="btn btn-dark btn-sm">
+      🌙 Modo Oscuro
+    </button>
+  </div>
+
+  <!-- <div class="chart-container">
+    <canvas id="supervisoresChart"></canvas>
+  </div> -->
+
+
+  <script>
+    const supervisorLabels = {{ supervisor_labels | tojson }};
+    const supervisorValues = {{ supervisor_values | tojson }};
+  </script>
+
+
+
+
+
+
+  <!--   <div class="table-container">
+
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-sm">
+        <thead class="table-dark">
+          <tr>
+            {% for col in tabla_columnas %}
+            <th>{{ col }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for fila in tabla_data %}
+          <tr>
+            {% for col in tabla_columnas %}
+            <td>{{ fila[col] }}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div> -->
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <script>
+    const marcadores = {{ marcadores | tojson }};
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
