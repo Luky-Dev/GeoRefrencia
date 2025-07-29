@@ -43,7 +43,7 @@ def procesar_csv(input_path="data/nueva_base_con_coordenadas.csv",
     with open(registro_path, 'a', encoding='utf-8') as log_file:
         for idx, row in filas_a_procesar.iterrows():
             nombre = row.get("NOMBRE", "")
-            direccion_formateada = f"{row['DIRECCIÓN']}, {row.get('CIUDAD', 'Colombia')}"
+            direccion_formateada = f"{row['DIRECCIÓN']}, {row.get('LOCALIDAD', 'Colombia')}"
 
 
             if direccion_formateada in direcciones_procesadas:
