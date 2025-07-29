@@ -20,8 +20,8 @@
 
   <div class="button-container-editar">
     <a href="/editar">
-      <button id="toggleEditar" class="btn btn-primary btn-lg">
-        Editar Base de Datos
+      <button id="toggleEditar" class="btn btn-info btn-md">
+        📝Editar Base de Datos
       </button>
     </a>
   </div>
@@ -74,10 +74,19 @@
       </div>
 
     </div>
+    <div class="text-center" style="margin-top: -40px; margin-bottom: 16px;">
+      <div class="input-group justify-content-center" style="max-width: 300px; margin: 0 auto;">
+        <input id="inputCedula" type="text" placeholder="Buscar por cédula" class="form-control">
+        <button onclick="buscarPorCedula()" class="btn btn-info">🔍 Buscar</button>
+      </div>
+    </div>
+
   </div>
 
-  <input id="inputCedula" type="text" placeholder="Buscar por cédula" class="form-control mb-2">
-  <button onclick="buscarPorCedula()" class="btn btn-info">🔍 Buscar</button>
+  </div>
+  </div>
+
+
 
 
   <div id="map"></div>
